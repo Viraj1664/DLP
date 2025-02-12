@@ -3,12 +3,14 @@
 %}
 
 %%
-[0-9]+  { printf("%s\n", yytext); }  
-.|\n    { /* Ignore other characters */ }
+
+[0-9]+  { printf("%s\n", yytext); }  // Print each number found on a new line
+.|\n    { /* Ignore all non-numeric characters */ }
+
 %%
 
 int main() {
-    yylex();
+    yylex();  // Start lexical analysis
     return 0;
 }
 
