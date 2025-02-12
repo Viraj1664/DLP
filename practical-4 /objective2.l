@@ -3,8 +3,8 @@
 %}
 
 %%
-charusat    { printf("university"); }  // Replace "charusat" with "university"
-.|\n        { printf("%s", yytext); }  // Print all other characters as they are
+[Cc][Hh][Aa][Rr][Uu][Ss][Aa][Tt] { printf("university"); }
+. { putchar(yytext[0]); }
 %%
 
 int main() {
