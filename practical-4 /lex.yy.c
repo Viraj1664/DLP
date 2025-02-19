@@ -352,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 7
+#define YY_END_OF_BUFFER 8
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,25 +363,25 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[11] =
     {   0,
-        0,    0,    6,    3,    2,    1,    3,    2,    4,    0
+        0,    0,    8,    5,    6,    4,    3,    2,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    1,    1,    1,
-        1,    1,    1,    1,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        1,    1,    1,    1,    1,    1,    4,    4,    4,    4,
+        1,    1,    1,    1,    3,    3,    1,    1,    1,    1,
+        1,    3,    1,    1,    1,    1,    1,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    1,    3,    1,
+        1,    1,    1,    3,    5,    5,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        1,    1,    1,    1,    1,    1,    6,    6,    6,    6,
 
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    4,    4,    4,
-        4,    4,    1,    1,    1,    1,    1,    1,    1,    1,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    6,    6,    6,    6,    6,    6,    6,    6,
+        6,    6,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -398,33 +398,31 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[5] =
+static const YY_CHAR yy_meta[7] =
     {   0,
-        1,    2,    1,    3
+        1,    1,    1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[13] =
+static const flex_int16_t yy_base[11] =
     {   0,
-        0,    0,    7,    8,    0,    8,    0,    0,    0,    8,
-        4,    2
+        0,    0,    7,    8,    8,    8,    8,    8,    8,    8
     } ;
 
-static const flex_int16_t yy_def[13] =
+static const flex_int16_t yy_def[11] =
     {   0,
-       10,    1,   10,   10,   11,   10,   12,   11,   12,    0,
-       10,   10
+       10,    1,   10,   10,   10,   10,   10,   10,   10,    0
     } ;
 
-static const flex_int16_t yy_nxt[13] =
+static const flex_int16_t yy_nxt[15] =
     {   0,
-        4,    5,    6,    7,    9,    8,   10,    3,   10,   10,
-       10,   10
+        4,    5,    6,    7,    8,    9,   10,    3,   10,   10,
+       10,   10,   10,   10
     } ;
 
-static const flex_int16_t yy_chk[13] =
+static const flex_int16_t yy_chk[15] =
     {   0,
-        1,    1,    1,    1,   12,   11,    3,   10,   10,   10,
-       10,   10
+        1,    1,    1,    1,    1,    1,    3,   10,   10,   10,
+       10,   10,   10,   10
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -441,11 +439,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "objective3.l"
-#line 2 "objective3.l"
+#line 1 "objective4.l"
+#line 2 "objective4.l"
 #include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
-int char_count = 0, word_count = 0, line_count = 0;
+int lowercase = 0, uppercase = 0, digit = 0, symbol = 0;
 #line 449 "lex.yy.c"
 #line 450 "lex.yy.c"
 
@@ -664,10 +664,9 @@ YY_DECL
 		}
 
 	{
-#line 7 "objective3.l"
+#line 9 "objective4.l"
 
-
-#line 670 "lex.yy.c"
+#line 669 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -725,32 +724,50 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "objective3.l"
-{ line_count++; char_count++; }  // Count lines and newlines as characters
+#line 10 "objective4.l"
+{ lowercase = 1; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 10 "objective3.l"
-{ char_count++; }  // Count spaces and tabs as characters
+#line 11 "objective4.l"
+{ uppercase = 1; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 11 "objective3.l"
-{ char_count++; }  // Count all other characters
+#line 12 "objective4.l"
+{ digit = 1; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 12 "objective3.l"
-{ word_count++; } // Count words (alphanumeric sequences)
+#line 13 "objective4.l"
+{ symbol = 1; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "objective3.l"
+#line 14 "objective4.l"
+{ }  /* Ignore other characters */
+	YY_BREAK
+case 6:
+/* rule 6 can match eol */
+YY_RULE_SETUP
+#line 15 "objective4.l"
+{ 
+    if (yyleng >= 9 && yyleng <= 15 && lowercase && uppercase && digit && symbol) {
+        printf("Valid password\n");
+    } else {
+        printf("Invalid password\n");
+    }
+    /* Reset counters for next input */
+    lowercase = uppercase = digit = symbol = 0;
+}
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 24 "objective4.l"
 ECHO;
 	YY_BREAK
-#line 753 "lex.yy.c"
+#line 770 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1755,16 +1772,12 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 14 "objective3.l"
+#line 24 "objective4.l"
 
 
 int main() {
-    yylex();  // Start lexical analysis
-
-    printf("Characters : %d\n", char_count);
-    printf("Words : %d\n", word_count);
-    printf("Lines : %d\n", line_count);
-
+    printf("Enter password: ");
+    yylex();
     return 0;
 }
 
