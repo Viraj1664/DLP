@@ -3,23 +3,23 @@
 #include <ctype.h>
 #include <string.h>
 
-int lowercase = 0, uppercase = 0, digit = 0, symbol = 0;
+int lowercase = 0, uppercase = 0, digit = 0, symbol = 0, length = 0;
 %}
 
 %%
-[a-z]    { lowercase = 1; }
-[A-Z]    { uppercase = 1; }
-[0-9]    { digit = 1; }
-[*;#$@]  { symbol = 1; }
-.        { }  /* Ignore other characters */
+[a-z]    { lowercase = 1; length++; }
+[A-Z]    { uppercase = 1; length++; }
+[0-9]    { digit = 1; length++; }
+[*;#$@]  { symbol = 1; length++; }
+.        { length++; }  /* Count any other character */
 \n       { 
-    if (yyleng >= 9 && yyleng <= 15 && lowercase && uppercase && digit && symbol) {
+    if (length >= 9 && length <= 15 && lowercase && uppercase && digit && symbol) {
         printf("Valid password\n");
     } else {
         printf("Invalid password\n");
     }
     /* Reset counters for next input */
-    lowercase = uppercase = digit = symbol = 0;
+    lowercase = uppercase = digit = symbol = length = 0;
 }
 %%
 
